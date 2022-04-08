@@ -2,7 +2,7 @@ package com.skilldistillery.blackjack.cards;
 
 import java.util.Objects;
 
-public class Card {
+public class Card  {
 	Suit suit;
 	Rank rank;
 
