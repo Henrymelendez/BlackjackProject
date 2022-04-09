@@ -1,21 +1,52 @@
 package com.skilldistillery.blackjack.cards;
 
-public class Dealer extends BlackjackHand {
-	
+public class Dealer   {
+	BlackjackHand dealerHand;
+	Deck game;
 	
 	public Dealer() {
-		Deck deck = new Deck();
+		dealerHand = new BlackjackHand();
+		game = new Deck();
 		
+	}
+	
+	public Card dealACard() {
 		
+		return	game.dealCard();
+		
+	}
+	
+	public void addACard(Card c) {
+		
+		dealerHand.addCard(c);
+	}
+	
+	public int showHandValue() {
+		
+		return dealerHand.getHandValue();
+	}
+	
+	
+	public int remainingCards() {
+		
+		return game.checkDeckSize();
+	}
+	
+	public void shuffleCards() {
+		
+		game.shuffle();
+	}
+	
+	public void showHand() {
+		for(Card hand : dealerHand.cards) {
+			System.out.println(hand);
+		}
 	}
 	
 	
 	
+
 	
-	
-
-
-
 	
 	
 	

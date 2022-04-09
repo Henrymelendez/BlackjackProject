@@ -4,16 +4,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Deck {
+import javax.swing.DebugGraphics;
+
+public class Deck  {
 
 	List<Card> deck;
 
 	public Deck() {
+		
 		deck = new ArrayList<>();
 		createDeck();
 	}
 	
 	
+
+
+
 
 
 	public void createDeck(){

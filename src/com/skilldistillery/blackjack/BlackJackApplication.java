@@ -1,9 +1,8 @@
 package com.skilldistillery.blackjack;
 
 import java.util.Scanner;
-import java.util.concurrent.Delayed;
-
 import com.skilldistillery.blackjack.cards.Dealer;
+import com.skilldistillery.blackjack.cards.Player;
 
 public class BlackJackApplication {
 
@@ -15,19 +14,45 @@ public class BlackJackApplication {
 	
 	
 	public void run() {
-		Scanner sc = new Scanner(System.in);
+
+		Player player = new Player();
 		Dealer dealer = new Dealer();
+		Scanner sc = new Scanner(System.in);
+		
+		dealer.shuffleCards();
 		boolean keepGoing = true;
 		
+		player.getCardHand(dealer.dealACard());
+		player.getCardHand(dealer.dealACard());
+		dealer.addACard(dealer.dealACard());
+		dealer.addACard(dealer.dealACard());
 		while(keepGoing) {
+			System.out.println("Your Hand: ");
+			player.printHand();
+			System.out.println("the value for your hands is " + player.getValue());
+			System.out.println();
+			System.out.println("The Dealer: ");
+			dealer.showHand();
+			System.out.println("The value of the dealer hand is " + dealer.showHandValue());
+			System.out.println("There are " + dealer.remainingCards() + " cards left");
+			System.out.println();
+			
 			
 			System.out.println("Do you want to hit or Stand:");
+			System.out.println("1. Hit");
+			System.out.println("2. Stand");
+			int input = sc.nextInt();
 			
-			try {
-				String input = sc.nextLine();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			
+			
+			switch(input) {	
+			
+			case 1:
+				player.getCardHand(dealer.dealACard());
+				if()
+				break;
+			case 2:
+			
 			}
 			
 		}

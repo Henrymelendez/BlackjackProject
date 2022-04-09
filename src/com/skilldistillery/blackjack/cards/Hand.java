@@ -3,7 +3,7 @@ package com.skilldistillery.blackjack.cards;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Hand {
+public abstract class Hand extends Deck {
 	
 	protected List<Card> cards;
 	
