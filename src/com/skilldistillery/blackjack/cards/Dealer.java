@@ -78,6 +78,7 @@ public class Dealer {
 	public void dealerTurn() {
 		
 		while(dealerHand.getHandValue() < 17) {
+			System.out.println("===================");
 			System.out.println("Dealer Hits!");
 			addACard(dealACard());
 			
@@ -90,6 +91,7 @@ public class Dealer {
 	public void showOne() {
 		System.out.println("Dealer: ");
 		System.out.println(dealerHand.cards.get(0));
+		System.out.println("Dealer hand value " + dealerHand.cards.get(0).getValue());
 		
 	}
 
