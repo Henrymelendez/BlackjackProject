@@ -41,7 +41,7 @@ public class Dealer {
 		for (Card hand : dealerHand.cards) {
 			System.out.println(hand);
 		}
-		System.out.println("Value of dealer hand " + showHandValue());
+		
 		System.out.println();
 
 	}
@@ -72,6 +72,19 @@ public class Dealer {
 	public void dealerClearHand() {
 		
 		dealerHand.clear();
+	}
+	
+	
+	public void dealerTurn() {
+		
+		while(dealerHand.getHandValue() < 17) {
+			System.out.println("Dealer Hits!");
+			addACard(dealACard());
+			
+			showHand();
+	
+			System.out.println();
+		}
 	}
 
 }

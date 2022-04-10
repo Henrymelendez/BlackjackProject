@@ -61,6 +61,14 @@ public class Player {
 		System.out.println();
 	}
 	
+	
+	public void playerTurn(Card c) {
+		
+		printHand();
+		
+		getCardHand(c);
+	}
+	
 
 	
 	

@@ -3,7 +3,7 @@ package com.skilldistillery.blackjack.cards;
 
 
 public class BlackjackHand extends Hand {
-	private int total;
+	
 
 	public BlackjackHand() {
 
@@ -19,6 +19,7 @@ public class BlackjackHand extends Hand {
 	}
 
 	public boolean isBlackjack() {
+		int total =0;
 		for (Card card : cards) {
 			total += card.getValue();
 		}
@@ -32,7 +33,7 @@ public class BlackjackHand extends Hand {
 	}
 
 	public boolean isBust() {
-		total = 0;
+		int total = 0;
 		for (Card card : cards) {
 			total += card.getValue();
 		}

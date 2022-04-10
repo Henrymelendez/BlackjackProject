@@ -21,37 +21,24 @@ public class BlackJackApplication {
 		boolean keepGoing =true;
 		dealer.shuffleCards();
 	
-
-		player.getCardHand(dealer.dealACard());
-		player.getCardHand(dealer.dealACard());
 		dealer.addACard(dealer.dealACard());
 		dealer.addACard(dealer.dealACard());
 		
 
+		player.getCardHand(dealer.dealACard());
+		player.getCardHand(dealer.dealACard());
 		
 			
-			boolean dealerturn = true;
 			
-			if(player.playerBlackjack()) {
-				player.printHand();
-				System.out.println("You Won BlackJack");
-				
-			}
-			else if(dealer.dealerWin()) {
-				player.printHand();
-				
-				System.out.println("You Lose Dealer Hit a BlackJack");
-				dealer.showHand();
-				System.out.println();
-				
-			}
+			
+			
 			
 			while (keepGoing) {
 				
 			
 		
+		
 			player.printHand();
-			System.out.println();
 			dealer.showHand();
 			System.out.println("There are " + dealer.remainingCards() + " cards left");
 			System.out.println();
@@ -63,40 +50,74 @@ public class BlackJackApplication {
 			System.out.println();
 			
 			
-			if(input == 1) {
+			switch(input) {
 				
-		
-					player.getCardHand(dealer.dealACard());
-					
-			} else {
-					System.out.println("Player Stays");
-					System.out.println();
-					
+			case 1:
 				
+					player.playerTurn(dealer.dealACard());
+					if(player.getValue() == 21) {
+						player.printHand();
+						System.out.println("Black jack you win");
+						System.exit(0);
+					}
+					else {
+						if (player.getValue() > 21) {
+						System.out.println("you hit a bust you lose!!");
+						player.printHand();
+						System.exit(0);
+						}
+					}
+					break;
+					
+			case 2:
+				dealer.dealerTurn();
+				dealer.showHand();
+				
+				System.out.println(dealer.showHandValue());
+				if(dealer.showHandValue() == 21) {
+					System.out.println("Dealer Hit a Blackjack ");
+					System.out.println("you Lose!!!");
+				}
+				else if(dealer.showHandValue() > 21) {
+					System.out.println("Dealer hit bust");
+					System.out.println("You win !!");
+					
+					System.exit(0);
+					}	
+				if(dealer.showHandValue() > 17) {
+					win(player, dealer);
+					System.exit(0);
 				}
 				
-			
-			 
-			if(input == 2 ) {
-			
-				while (dealerturn) {
-					
-				
-				while(dealer.showHandValue() < 17) {
-					System.out.println("Dealer Hits!");
-					dealer.addACard(dealer.dealACard());
-					
-					dealer.showHand();
-			
-					System.out.println();
+				break;
+			default:
+				System.out.println("Please enter a valid input");
+				break;
 				}
-				 	dealerturn = false;
-					keepGoing = false;
+			
 				
 				} 
 			
 			}
-			}
+	
+	
+	public boolean win(Player p, Dealer d) {
+		
+		if(p.getValue() > d.showHandValue() && p.getValue() < 21) {
+			System.out.println("You win !!!");
+			return true;
+		}
+		
+		else if(d.showHandValue() > p.getValue() && d.showHandValue() < 21) {
+			System.out.println("You lost dealer won");
+			return true;
+		}
+		return false;
+		
+		
+	}
+			
+			
 				
 				
 			
@@ -104,30 +125,17 @@ public class BlackJackApplication {
 				
 			
 			
-			if(player.getValue() > dealer.showHandValue() && player.getValue() <= 21 || dealer.showHandValue() > 21 ) {
-				player.printHand();
-				System.out.println("You win");
-				System.out.println();
-				dealer.showHand();
-				
-			}else if (player.getValue() == dealer.showHandValue()) {
-				System.out.println("Tie clearing hands");
-				player.clearHand();
-				dealer.dealerClearHand();
-				
-			}
-			else if(dealer.showHandValue() > 21) {
-				System.out.println("dealer hit a bust you win");
-				dealer.showHand();
-			}
-			else if(player.getValue() > 21) {
-				System.out.println("You Hit Bust you lose!!");
-				player.printHand();
-				
-			}
+			
 			
 			
 				}
+
+	
+	
+	
+	
+	
+		
 			
 		
 
@@ -137,4 +145,4 @@ public class BlackJackApplication {
 		
 		
 
-}
+
