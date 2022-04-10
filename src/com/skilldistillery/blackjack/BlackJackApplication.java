@@ -50,12 +50,15 @@ public class BlackJackApplication {
 			System.out.println();
 			
 			
-			
+			if(player.getValue() == 21) {
+				win(player, dealer);
+				System.exit(0);
+			}
 			
 			switch(input) {
 				
 			case 1:
-				
+					System.out.println("Player Hits!!!");
 					player.playerTurn(dealer.dealACard());
 					if(player.getValue() == 21) {
 						player.printHand();
@@ -113,6 +116,15 @@ public class BlackJackApplication {
 		else if(d.showHandValue() > p.getValue() && d.showHandValue() < 21) {
 			System.out.println("You lost dealer won");
 			return true;
+		}
+		else if(p.getValue() == 21) {
+			p.printHand();
+			System.out.println("Black jack you win");
+			System.exit(0);
+		}
+		else if(p.getValue() == d.showHandValue()) {
+			System.out.println("Tie!!! ");
+			System.exit(0);
 		}
 		return false;
 		
