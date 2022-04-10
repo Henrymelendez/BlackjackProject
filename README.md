@@ -8,6 +8,17 @@
 
 ## Technology / Skills Used
 
+* Java  
+* Eclipse
+* Abstraction
+* Ecapsulation
+* Inheritance
+* Polymorphism
+* Enums
+* For Each / For loops
+* Classes
+* Switch cases
+
 
 
 ## User Stories

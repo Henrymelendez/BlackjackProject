@@ -46,6 +46,7 @@ public class BlackJackApplication {
 			System.out.println("Do you want to hit or Stand:");
 			System.out.println("1. Hit");
 			System.out.println("2. Stand");
+			
 			int input = sc.nextInt();
 			System.out.println();
 			
