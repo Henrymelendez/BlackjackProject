@@ -1,11 +1,11 @@
 package com.skilldistillery.blackjack.cards;
 
 
-import java.util.List;
+
 
 public class Player {
 	
-	private List<Card> card;
+	
 	private int total;
 	private BlackjackHand playerHand; 
 	
@@ -15,17 +15,31 @@ public class Player {
 	}
 	
 	public int getValue() {
-		for (Card cards : playerHand.cards) {
-			total += cards.getValue();
-		}
+		
 		return total;
 	}
 	
 	public void getCardHand(Card c) {
-		 
+		
+		 total += c.getValue();
 		 playerHand.addCard(c);
 		 
 		
+	}
+	public boolean playerBlackjack() {
+		if(playerHand.isBlackjack()) {
+			
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean playerBustLose() {
+		if(playerHand.isBust()) {
+			
+			return true;
+		}
+		return false;
 	}
 	
 	
@@ -36,6 +50,9 @@ public class Player {
 		}
 		
 	}
+	
+
+	
 	
 	
 	

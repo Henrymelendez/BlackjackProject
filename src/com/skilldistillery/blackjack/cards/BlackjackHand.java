@@ -3,18 +3,10 @@ package com.skilldistillery.blackjack.cards;
 import java.util.List;
 
 public class BlackjackHand extends Hand {
-	
-	
-	
-	
+
 	public BlackjackHand() {
-		
-	
-		
+
 	}
-	
-	
-	
 
 	@Override
 	public int getHandValue() {
@@ -24,29 +16,21 @@ public class BlackjackHand extends Hand {
 		}
 		return total;
 	}
-	
-	
-	
+
 	public boolean isBlackjack() {
-		if(this.getHandValue()== 21) {
+		if (this.getHandValue() == 21) {
 			return true;
 		}
-		
+
 		return false;
 	}
-	
-	
-	
-	
+
 	public boolean isBust() {
-		if(this.getHandValue() > 21) {
+		if (this.getHandValue() > 21) {
 			return true;
 		}
-		
+
 		return false;
 	}
-	
-	
-	
 
 }
