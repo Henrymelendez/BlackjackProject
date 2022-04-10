@@ -18,6 +18,8 @@
 * For Each / For loops
 * Classes
 * Switch cases
+* UML
+* if / else / else if
 
 
 
@@ -49,3 +51,7 @@ Determine the winner of each round by implementing the remaining rules of Blackj
 
 
 ## Lessons Learned 
+
+The project was tough i had to make a lot of changes as each edge case failed or gave me issues. I had to constantly change win logic how methods worked and how the player, and the dealer interacted with the game I am not a black jack player so i had to do a little learning to apply the logic into code to get the correct output from the logic. another problem area for me was in the switching off between the dealer and the player. The switch off would make the win / loss logic funky which required me to stop and debug code line by line until I found what methods where causing it to fail.
+
+

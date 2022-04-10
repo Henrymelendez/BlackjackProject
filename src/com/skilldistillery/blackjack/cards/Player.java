@@ -27,23 +27,9 @@ public class Player {
 		 
 		
 	}
-	public boolean playerBlackjack() {
-		if(playerHand.isBlackjack()) {
-			
-			return true;
-		}
-		return false;
-	}
 	
-	public boolean playerBustLose() {
-		if(playerHand.isBust()) {
-			
-			return true;
-		} else {
-			
-			return false;
-		}
-	}
+	
+	
 	
 	public void clearHand() {
 		

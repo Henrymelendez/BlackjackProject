@@ -46,28 +46,9 @@ public class Dealer {
 
 	}
 	
-	public boolean dealerWin() {
-		
-		if(dealerHand.isBlackjack()) {
-			
-			return true;
-		}else {
-			
-			return false;
-		}
-		
-	}
+
 	
-	public boolean dealerBustLose() {
-		
-		if(dealerHand.isBust()){
-			
-			return true;
-		} else {
-			
-			return false;
-		}
-	}
+
 	
 	public void dealerClearHand() {
 		
