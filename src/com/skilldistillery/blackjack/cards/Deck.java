@@ -40,7 +40,8 @@ public class Deck  {
 	
 	public Card dealCard() {
 		
-		return deck.remove(0);
+		Card card = deck.remove(0);
+		return card;
 		
 	}
 	

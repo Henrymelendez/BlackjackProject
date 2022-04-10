@@ -37,9 +37,12 @@ public class Dealer {
 	}
 
 	public void showHand() {
+		System.out.println("Dealer: ");
 		for (Card hand : dealerHand.cards) {
 			System.out.println(hand);
 		}
+		System.out.println("Value of dealer hand " + showHandValue());
+		System.out.println();
 
 	}
 	

@@ -18,20 +18,24 @@ public class BlackJackApplication {
 		Player player = new Player();
 		Dealer dealer = new Dealer();
 		Scanner sc = new Scanner(System.in);
-
+		boolean keepGoing =true;
 		dealer.shuffleCards();
-		boolean keepGoing = true;
+	
 
 		player.getCardHand(dealer.dealACard());
 		player.getCardHand(dealer.dealACard());
 		dealer.addACard(dealer.dealACard());
 		dealer.addACard(dealer.dealACard());
+		
 
-		while (!player.playerBustLose() || !dealer.dealerBustLose()) {
+		
+			
+			boolean dealerturn = true;
+			
 			if(player.playerBlackjack()) {
 				player.printHand();
 				System.out.println("You Won BlackJack");
-				break;
+				
 			}
 			else if(dealer.dealerWin()) {
 				player.printHand();
@@ -39,16 +43,16 @@ public class BlackJackApplication {
 				System.out.println("You Lose Dealer Hit a BlackJack");
 				dealer.showHand();
 				System.out.println();
-				break;
+				
 			}
+			
+			while (keepGoing) {
+				
 			
 		
 			player.printHand();
-			System.out.println("the value for your hands is " + player.getValue());
 			System.out.println();
-			System.out.println("The Dealer: ");
 			dealer.showHand();
-			System.out.println("The value of the dealer hand is " + dealer.showHandValue());
 			System.out.println("There are " + dealer.remainingCards() + " cards left");
 			System.out.println();
 
@@ -60,56 +64,77 @@ public class BlackJackApplication {
 			
 			
 			if(input == 1) {
-				player.getCardHand(dealer.dealACard());
-				sc.nextLine();
+				
+		
+					player.getCardHand(dealer.dealACard());
+					
 			} else {
-				System.out.println("Player Stays");
-				System.out.println();
-				
-			}
-			if(dealer.showHandValue() <= 17) {
-				
-				while (dealer.showHandValue() <= 17) {
-					System.out.println("Dealer Hits!");
-					dealer.addACard(dealer.dealACard());
-					System.out.println("Dealer :");
-					dealer.showHand();
-					System.out.println(dealer.showHandValue());
+					System.out.println("Player Stays");
 					System.out.println();
+					
+				
 				}
 				
-				
-			} 
-			else {
-				continue;
-			}
 			
-			if(player.getValue() > dealer.showHandValue() && player.getValue() <= 21 || dealer.dealerBustLose()) {
+			 
+			if(input == 2 ) {
+			
+				while (dealerturn) {
+					
+				
+				while(dealer.showHandValue() < 17) {
+					System.out.println("Dealer Hits!");
+					dealer.addACard(dealer.dealACard());
+					
+					dealer.showHand();
+			
+					System.out.println();
+				}
+				 	dealerturn = false;
+					keepGoing = false;
+				
+				} 
+			
+			}
+			}
+				
+				
+			
+			
+				
+			
+			
+			if(player.getValue() > dealer.showHandValue() && player.getValue() <= 21 || dealer.showHandValue() > 21 ) {
 				player.printHand();
 				System.out.println("You win");
 				System.out.println();
-				break;
+				dealer.showHand();
+				
 			}else if (player.getValue() == dealer.showHandValue()) {
+				System.out.println("Tie clearing hands");
 				player.clearHand();
 				dealer.dealerClearHand();
 				
 			}
-			else if(player.playerBustLose()) {
+			else if(dealer.showHandValue() > 21) {
+				System.out.println("dealer hit a bust you win");
+				dealer.showHand();
+			}
+			else if(player.getValue() > 21) {
 				System.out.println("You Hit Bust you lose!!");
-				break;
-			}
-			else if(dealer.dealerBustLose()) {
-				System.out.println("Dealer Hit bust you win");
-				break;
+				player.printHand();
+				
 			}
 			
 			
+				}
 			
-			
+		
 
 
-		}// end of while
+	
 
-	}
+		
+		
 
 }

@@ -57,6 +57,7 @@ public class Player {
 		for (Card cards : playerHand.cards) {
 			System.out.println(cards);
 		}
+		System.out.println("Value of player hand is " + getValue());
 		System.out.println();
 	}
 	
