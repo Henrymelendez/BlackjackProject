@@ -7,7 +7,8 @@ public class Player {
 	
 	
 	private int total;
-	private BlackjackHand playerHand; 
+	private BlackjackHand playerHand;
+	
 	
 	public Player() {
 		playerHand = new BlackjackHand();
@@ -38,8 +39,15 @@ public class Player {
 		if(playerHand.isBust()) {
 			
 			return true;
+		} else {
+			
+			return false;
 		}
-		return false;
+	}
+	
+	public void clearHand() {
+		
+		playerHand.clear();
 	}
 	
 	

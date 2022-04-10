@@ -60,8 +60,15 @@ public class Dealer {
 		if(dealerHand.isBust()){
 			
 			return true;
+		} else {
+			
+			return false;
 		}
-		return false;
+	}
+	
+	public void dealerClearHand() {
+		
+		dealerHand.clear();
 	}
 
 }

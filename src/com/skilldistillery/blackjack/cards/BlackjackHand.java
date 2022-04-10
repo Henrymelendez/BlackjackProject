@@ -3,6 +3,7 @@ package com.skilldistillery.blackjack.cards;
 import java.util.List;
 
 public class BlackjackHand extends Hand {
+	private int total;
 
 	public BlackjackHand() {
 
@@ -18,19 +19,28 @@ public class BlackjackHand extends Hand {
 	}
 
 	public boolean isBlackjack() {
-		if (this.getHandValue() == 21) {
+		for (Card card : cards) {
+			total += card.getValue();
+		}
+		if(total == 21) {
 			return true;
 		}
-
-		return false;
+		else {
+			total = 0;
+			return false;
+		}
 	}
 
 	public boolean isBust() {
-		if (this.getHandValue() > 21) {
-			return true;
+		for (Card card : cards) {
+			total += card.getValue();
 		}
-
-		return false;
+		if(total > 21 ) {
+			return true;
+		} else {
+			total = 0;
+			return false;
+		}
 	}
 
 }
