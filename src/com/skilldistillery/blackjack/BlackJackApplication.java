@@ -39,7 +39,7 @@ public class BlackJackApplication {
 		
 		
 			player.printHand();
-			dealer.showHand();
+			dealer.showOne();
 			System.out.println("There are " + dealer.remainingCards() + " cards left");
 			System.out.println();
 
@@ -48,6 +48,8 @@ public class BlackJackApplication {
 			System.out.println("2. Stand");
 			int input = sc.nextInt();
 			System.out.println();
+			
+			
 			
 			
 			switch(input) {
@@ -84,7 +86,7 @@ public class BlackJackApplication {
 					
 					System.exit(0);
 					}	
-				if(dealer.showHandValue() > 17) {
+				if(dealer.showHandValue() >= 17) {
 					win(player, dealer);
 					System.exit(0);
 				}

@@ -81,10 +81,16 @@ public class Dealer {
 			System.out.println("Dealer Hits!");
 			addACard(dealACard());
 			
-			showHand();
+			
 	
 			System.out.println();
 		}
+	}
+	
+	public void showOne() {
+		System.out.println("Dealer: ");
+		System.out.println(dealerHand.cards.get(0));
+		
 	}
 
 }
