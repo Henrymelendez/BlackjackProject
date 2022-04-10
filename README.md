@@ -2,7 +2,7 @@
 
 
 ## Description
-A Black game application that would allow a player to play against a computer until either won or lost if either the player or the computer hit a bust or a blackjack the game would end regardless of the move either made.
+A Black game application that would allow a player to play against a computer until either won or lost if either the player or the computer hit a bust or a blackjack the game would end regardless of the move either made , or a tie if for some reason both players decide to stand.
 
 
 
