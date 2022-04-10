@@ -67,8 +67,8 @@ public class BlackJackApplication {
 					}
 					else {
 						if (player.getValue() > 21) {
-						System.out.println("you hit a bust you lose!!");
-						player.printHand();
+						System.out.println("You hit a bust you lose!!");
+						
 						System.exit(0);
 						}
 					}

@@ -64,7 +64,7 @@ public class Player {
 	
 	public void playerTurn(Card c) {
 		
-		printHand();
+		
 		
 		getCardHand(c);
 	}
