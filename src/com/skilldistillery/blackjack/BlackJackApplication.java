@@ -28,8 +28,21 @@ public class BlackJackApplication {
 		dealer.addACard(dealer.dealACard());
 
 		while (!player.playerBustLose() || !dealer.dealerBustLose()) {
+			if(player.playerBlackjack()) {
+				player.printHand();
+				System.out.println("You Won BlackJack");
+				break;
+			}
+			else if(dealer.dealerWin()) {
+				player.printHand();
+				
+				System.out.println("You Lose Dealer Hit a BlackJack");
+				dealer.showHand();
+				System.out.println();
+				break;
+			}
 			
-			System.out.println("Your Hand: ");
+		
 			player.printHand();
 			System.out.println("the value for your hands is " + player.getValue());
 			System.out.println();
@@ -48,29 +61,31 @@ public class BlackJackApplication {
 			
 			if(input == 1) {
 				player.getCardHand(dealer.dealACard());
+				sc.nextLine();
 			} else {
 				System.out.println("Player Stays");
 				System.out.println();
 				
 			}
-			if(input == 2) {
+			if(dealer.showHandValue() <= 17) {
 				
 				while (dealer.showHandValue() <= 17) {
 					System.out.println("Dealer Hits!");
 					dealer.addACard(dealer.dealACard());
 					System.out.println("Dealer :");
 					dealer.showHand();
-					dealer.showHandValue();
+					System.out.println(dealer.showHandValue());
 					System.out.println();
 				}
-			} else {
 				
-				System.out.println("Dealer Stays.");
-				System.out.println();
 				
+			} 
+			else {
+				continue;
 			}
 			
-			if(player.getValue() > dealer.showHandValue() && player.getValue() <= 21 || dealer.showHandValue() > 21) {
+			if(player.getValue() > dealer.showHandValue() && player.getValue() <= 21 || dealer.dealerBustLose()) {
+				player.printHand();
 				System.out.println("You win");
 				System.out.println();
 				break;
@@ -79,17 +94,21 @@ public class BlackJackApplication {
 				dealer.dealerClearHand();
 				
 			}
-			else {
-				System.out.println("You Lose!! Dealer wins");
-				System.out.println();
+			else if(player.playerBustLose()) {
+				System.out.println("You Hit Bust you lose!!");
+				break;
+			}
+			else if(dealer.dealerBustLose()) {
+				System.out.println("Dealer Hit bust you win");
 				break;
 			}
 			
 			
 			
+			
 
 
-		}
+		}// end of while
 
 	}
 

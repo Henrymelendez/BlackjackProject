@@ -53,10 +53,11 @@ public class Player {
 	
 	
 	public void printHand() {
+		System.out.println("Player:");
 		for (Card cards : playerHand.cards) {
 			System.out.println(cards);
 		}
-		
+		System.out.println();
 	}
 	
 
