@@ -70,7 +70,7 @@ public class BlackJackApplication {
 					else {
 						if (player.getValue() > 21) {
 						System.out.println("You hit a bust you lose!!");
-						
+						player.printHand();
 						System.exit(0);
 						}
 					}
@@ -80,7 +80,8 @@ public class BlackJackApplication {
 				dealer.dealerTurn();
 				dealer.showHand();
 				
-				System.out.println(dealer.showHandValue());
+				
+				System.out.println("The value of dealer hand: " + dealer.showHandValue());
 				if(dealer.showHandValue() == 21) {
 					System.out.println("Dealer Hit a Blackjack ");
 					System.out.println("you Lose!!!");
